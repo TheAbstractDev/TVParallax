@@ -10,7 +10,7 @@ $('body').css({
   'transform': 'perspective(800px)'
 });
 
-function parallax(element, velocity, shine) {
+function parallax(element, velocity = 10, shine = true) {
   if (shine) {
     element.prepend('<div class="shine"></div>');
 
