@@ -1,0 +1,16 @@
+body, html {
+  height: 100%;
+  min-height: 100%;
+}
+
+.element {
+  width: 500px;
+  height: 320px;
+  position: absolute;
+  top: 23%;
+  left: 33%;
+  border-radius: 5px;
+  box-shadow: 0 45px 100px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  background-color: #d5e1e8;
+}
