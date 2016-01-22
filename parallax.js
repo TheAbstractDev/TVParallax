@@ -1,5 +1,5 @@
-var w = $(window).width(),
-    h = $(window).height();
+var w = $(window).width();
+var h = $(window).height();
 
 $('body').css({
   '-webkit-transform-style': 'preserve-3d',
@@ -10,10 +10,12 @@ $('body').css({
   'transform': 'perspective(800px)'
 });
 
-function parallax(element, velocity = 10, shine = true) {
+function parallax (element, velocity, shine) {
+  velocity = typeof velocity !== 'undefined' ? velocity : 10;
+  shine = typeof shine !== 'undefined' ? shine : true;
+
   if (shine) {
     element.prepend('<div class="shine"></div>');
-
     $('.shine').css({
       'position': 'absolute',
       'top': 0,
@@ -25,13 +27,14 @@ function parallax(element, velocity = 10, shine = true) {
   }
 
   element.on('mousemove', function(e) {
-    var offsetX = 0.5 - e.pageX / w
-    var offsetY = 0.5 - e.pageY / h
-    var dy = e.pageY - h / 2
-    var dx = e.pageX - w / 2
-    var rad = Math.atan2(dy, dx)
+    var offsetX = 0.5 - e.pageX / w;
+    var offsetY = 0.5 - e.pageY / h;
+    var dy = e.pageY - h / 2;
+    var dx = e.pageX - w / 2;
+    var rad = Math.atan2(dy, dx);
     var angle = rad * 180 / Math.PI - 90;
-    if (shine) {$('.shine').css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255, 0.5) 0%,rgba(255,255,255, 0.1) 80%)');}
+
+    if ($('.shine')) {$('.shine').css('background', 'linear-gradient(' + angle + 'deg, rgba(255,255,255, 0.5) 0%,rgba(255,255,255, 0.1) 80%)');}
 
     transform = 'translateY(' + -offsetX * velocity + 'px) rotateX(' + (-offsetY * velocity) + 'deg) rotateY(' + (offsetX * (velocity * 2)) + 'deg)'; //poster transform
     if (angle < 0) {
