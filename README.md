@@ -2,10 +2,10 @@
 TvOS Parallax effect in jQuery
 
 # Installation
-Just drag the parallax.js file on your projet directory
+Just drag the parallax.js file on your project directory
 
 # Usage
-Start by include the javascript (AFTER including jQuery) on your html file.
+Start by including the javascript (AFTER including jQuery) on your html file.
 
 ## Add the parallax effect
 
@@ -18,7 +18,7 @@ Start by include the javascript (AFTER including jQuery) on your html file.
 ```
 
 #### `$('.element')`) 
-is the div who take the parallax effect.
+is the div who takes the parallax effect.
 
 #### `15`
 is the velocity of the parallax effect (default to 10).
